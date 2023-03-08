@@ -1,7 +1,7 @@
 import { Model } from 'sequelize';
 import { Column, DataType, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'client' })
+@Table({ tableName: 'clients' })
 export class Client extends Model {
   @Column({ primaryKey: true, autoIncrement: true })
   client_id: number;

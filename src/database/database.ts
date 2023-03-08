@@ -7,6 +7,7 @@ import { credentials } from './credentials';
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: credentials.host,
+      port: credentials.port,
       username: credentials.user,
       password: credentials.password,
       autoLoadModels: true,
