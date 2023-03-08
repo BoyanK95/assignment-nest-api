@@ -5,7 +5,7 @@ import { credentials } from './credentials';
 @Module({
   imports: [
     SequelizeModule.forRoot({
-      dialect: credentials.user,
+      dialect: 'postgres',
       host: credentials.host,
       username: credentials.user,
       password: credentials.password,
