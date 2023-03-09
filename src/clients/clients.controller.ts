@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { CreateClientDto } from 'src/auth/dtos/create-clients.dto';
 import { Client } from './clients.model';
 import { ClientsService } from './clients.service';
 
@@ -17,7 +18,7 @@ export class ClientsController {
   }
 
   @Post()
-  create(@Body() createClientDto: any): Promise<Client> {
+  create(@Body() createClientDto: CreateClientDto): Promise<Client> {
     return this.clientsService.create(createClientDto);
   }
 

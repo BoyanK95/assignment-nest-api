@@ -7,12 +7,45 @@ POST http://localhost:3001/users
 content-type: application/json
 
 {
-  "name": "Test3",
-  "email": "test3@gmail.com",
-  "password": "somePass",
-  "rights": "Write"
+  "name": "TestTest",
+    "email": "test5@gmail.com",
+    "password": "som",
+    "right": "Write"
 }
-
 
 ### Get a particular user
 GET http://localhost:3001/users/4
+
+
+### DELETE a particular user!
+DELETE  http://localhost:3001/users/4
+
+
+//CLIENTS
+### List all clients
+GET http://localhost:3001/clients
+
+### Get a particular client
+GET http://localhost:3001/clients/2
+
+
+
+### Create a new client
+POST http://localhost:3001/clients
+content-type: application/json
+
+{
+  "client_name": "TestClient3",
+  "email": "goodTest@email.com",
+  "country": "Bulgaria",
+  "countryCode": "BG",
+  "address": "Test2",
+  "postal_code": 9000,
+  "number_of_orders": 3,
+  "phone_number": 0123413189,
+  "city": "Varna",
+}
+
+
+### DELETE a particular client
+DELETE  http://localhost:3001/clients/2
