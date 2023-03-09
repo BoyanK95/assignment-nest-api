@@ -23,7 +23,7 @@ import { Client } from './clients/clients.model';
     }),
     ClientsModule
   ],
-  controllers: [AppController, ClientsController],
-  providers: [AppService, ClientsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
