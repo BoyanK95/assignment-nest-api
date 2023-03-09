@@ -12,11 +12,17 @@ export class ClientsService {
     return this.clientModel.findAll();
   }
 
-  findOne(id: string): Promise<Client> {
+  findOne(id: number): Promise<Client> {
     return this.clientModel.findByPk(id);
   }
 
   create(client: any): Promise<Client> {
     return this.clientModel.create(client);
+  }
+
+  async delete(id: number): Promise<Client> {
+    const client = await this.clientModel.findByPk(id);
+    await client.destroy();
+    return client;
   }
 }

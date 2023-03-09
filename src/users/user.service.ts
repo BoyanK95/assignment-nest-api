@@ -17,7 +17,7 @@ export class UserService {
     return this.userModel.findByPk(id);
   }
 
-  async create(user: User): Promise<User> {
+  async create(user: any): Promise<User> {
     return this.userModel.create(user);
   }
 
@@ -28,9 +28,9 @@ export class UserService {
     return affectedCount;
   }
 
-  async delete(id: number): Promise<number> {
-    return this.userModel.destroy({
-      where: { user_id: id },
-    });
+  async delete(id: number): Promise<User> {
+    const user = await this.userModel.findByPk(id);
+    await user.destroy();
+    return user;
   }
 }

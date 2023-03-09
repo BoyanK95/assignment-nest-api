@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { Client } from './clients.model';
 import { ClientsService } from './clients.service';
 
@@ -12,12 +12,17 @@ export class ClientsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<Client> {
+  findOne(@Param('id') id: number): Promise<Client> {
     return this.clientsService.findOne(id);
   }
 
   @Post()
   create(@Body() createClientDto: any): Promise<Client> {
     return this.clientsService.create(createClientDto);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: number): Promise<Client> {
+    return this.clientsService.delete(id);
   }
 }
