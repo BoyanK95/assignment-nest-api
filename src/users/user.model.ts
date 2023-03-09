@@ -27,11 +27,6 @@ export class User extends Model<User> {
   password: string;
 
   @Column({
-    unique: true,
-  })
-  authentication: string;
-
-  @Column({
     allowNull: false,
     defaultValue: 'Read',
     values: ['Admin', 'Read', 'Write'],
