@@ -9,6 +9,8 @@ import { credentials } from './database/credentials';
 import { Client } from './clients/clients.model';
 import { User } from './users/user.model';
 import { UserModule } from './users/user.module';
+import { Product } from './products/product.model';
+import { ProductModule } from './products/product.module';
 
 @Module({
   imports: [
@@ -19,11 +21,12 @@ import { UserModule } from './users/user.module';
       username: credentials.user,
       password: credentials.password,
       autoLoadModels: true,
-      // synchronize: true,
+      synchronize: true,
       models: [Client, User],
     }),
     ClientsModule,
     UserModule,
+    // ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

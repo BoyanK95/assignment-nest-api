@@ -1,41 +1,29 @@
-import { Controller, Post, Body, Get, Param, Patch } from '@nestjs/common';
-import { ProductsService } from './products.service';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Product } from './product.model';
+import { ProductService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productService: ProductsService) {}
-  @Post()
-  addProduct(
-    @Body('title') prodTitle: string,
-    @Body('description') prodDesc: string,
-    @Body('price') prodPrice: number,
-  ) {
-    const generatedProdId = this.productService.insertProduct(
-      prodTitle,
-      prodDesc,
-      prodPrice,
-    );
-    return { id: generatedProdId };
-  }
+  constructor(private readonly productService: ProductService) {}
 
   @Get()
-  getAllProducts() {
-    return this.productService.getProducts();
+  findAll(): Promise<Product[]> {
+    return this.productService.findAll();
   }
 
   @Get(':id')
-  getProduct(@Param('id') prodId: string) {
-    return this.productService.getSingleProduct(prodId);
+  findOne(@Param('id') id: number): Promise<Product> {
+    return this.productService.findOne(id);
   }
 
-  @Patch(':id')
-  updateProduct(
-    @Param('id') prodId: string,
-    @Body('title') prodTitle: string,
-    @Body('description') prodDesc: string,
-    @Body('price') prodPrice: number,
-  ): string {
-    this.productService.updateProduct(prodId, prodTitle, prodDesc, prodPrice);
-    return 'Product Updated!';
+  @Post()
+  create(@Body() createProductDto: any): Promise<Product> {
+    return this.productService.create(createProductDto);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: number): Promise<Product> {
+    return this.productService.delete(id);
   }
 }
+
