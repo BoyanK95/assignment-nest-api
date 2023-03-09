@@ -11,6 +11,7 @@ import { User } from './users/user.model';
 import { UserModule } from './users/user.module';
 import { Product } from './products/product.model';
 import { ProductModule } from './products/product.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ProductModule } from './products/product.module';
     }),
     ClientsModule,
     UserModule,
+    // AuthModule,
     // ProductModule,
   ],
   controllers: [AppController],
