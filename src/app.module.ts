@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProductModule } from './products/product.module';
 import { ClientsController } from './clients/clients.controller';
 import { ClientsModule } from './clients/clients.module';
 import { ClientsService } from './clients/clients.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { credentials } from './database/credentials';
 import { Client } from './clients/clients.model';
+import { User } from './users/user.model';
+import { UserModule } from './users/user.module';
 
 @Module({
   imports: [
@@ -18,10 +19,11 @@ import { Client } from './clients/clients.model';
       username: credentials.user,
       password: credentials.password,
       autoLoadModels: true,
-      synchronize: true,
-      models: [Client],
+      // synchronize: true,
+      models: [Client, User],
     }),
-    ClientsModule
+    ClientsModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
