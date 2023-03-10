@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { User } from './user.model';
 import { UserService } from './user.service';
 import { CreateUserDto } from 'src/auth/dtos/create-user.dto';
@@ -13,8 +22,13 @@ export class UserController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number): Promise<User> {
-    return this.usersService.findOne(id);
+  async findOne(@Param('id') id: number): Promise<User> {
+    const user = await this.usersService.findOne(id);
+
+    if (!user) {
+      throw new NotFoundException('user not found');
+    }
+    return user;
   }
 
   @Post()
@@ -24,6 +38,6 @@ export class UserController {
 
   @Delete(':id')
   delete(@Param('id') id: number): Promise<User> {
-    return this.usersService.delete(id)
+    return this.usersService.delete(id);
   }
 }
