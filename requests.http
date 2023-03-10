@@ -49,3 +49,28 @@ content-type: application/json
 
 ### DELETE a particular client
 DELETE  http://localhost:3001/clients/2
+
+
+
+//PRODUCTS
+### List all products
+GET http://localhost:3001/products
+
+
+### Create a new product
+POST http://localhost:3001/products
+content-type: application/json
+
+{
+  "name": "TestTest23123",
+    "email": "test2132@gmail.com",
+    "password": "weak123",
+    "right": "Write"
+}
+
+### Get a particular user
+GET http://localhost:3001/products/4
+
+
+### DELETE a particular user!
+DELETE  http://localhost:3001/products/4

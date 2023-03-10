@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { CreateClientDto } from 'src/auth/dtos/create-clients.dto';
 import { Client } from './clients.model';
 import { ClientsService } from './clients.service';
@@ -14,7 +22,13 @@ export class ClientsController {
 
   @Get(':id')
   findOne(@Param('id') id: number): Promise<Client> {
-    return this.clientsService.findOne(id);
+    const client = this.clientsService.findOne(id);
+
+    if (!client) {
+      throw new NotFoundException('Client Not Found!');
+    }
+
+    return client;
   }
 
   @Post()

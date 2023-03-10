@@ -26,7 +26,7 @@ export class UserController {
     const user = await this.usersService.findOne(id);
 
     if (!user) {
-      throw new NotFoundException('user not found');
+      throw new NotFoundException('User Not Found!');
     }
     return user;
   }
