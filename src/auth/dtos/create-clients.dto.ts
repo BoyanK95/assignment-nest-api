@@ -1,10 +1,7 @@
 import {
   IsEmail,
-  isNotEmpty,
   IsNotEmpty,
   IsNumber,
-  isNumber,
-  isPhoneNumber,
   IsString,
   Length,
 } from 'class-validator';
@@ -17,10 +14,12 @@ export class CreateClientDto {
 
   @IsEmail()
   @IsNotEmpty()
+  @Length(1, 255)
   email: string;
 
   @IsNotEmpty()
   @IsString()
+  @Length(1, 255)
   country: string;
 
   @IsString()
@@ -33,6 +32,7 @@ export class CreateClientDto {
 
   @IsNotEmpty()
   @IsNumber()
+  @Length(1, 10)
   postal_code: number;
 
   @IsNumber()

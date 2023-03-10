@@ -7,9 +7,9 @@ POST http://localhost:3001/users
 content-type: application/json
 
 {
-  "name": "TestTest",
-    "email": "test5@gmail.com",
-    "password": "som",
+  "name": "TestTest23123",
+    "email": "test2132@gmail.com",
+    "password": "weak123",
     "right": "Write"
 }
 
