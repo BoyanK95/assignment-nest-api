@@ -9,9 +9,7 @@ import { credentials } from './database/credentials';
 import { Client } from './clients/clients.model';
 import { User } from './users/user.model';
 import { UserModule } from './users/user.module';
-import { Product } from './products/product.model';
-import { ProductModule } from './products/product.module';
-import { AuthModule } from './auth/auth.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -27,8 +25,8 @@ import { AuthModule } from './auth/auth.module';
     }),
     ClientsModule,
     UserModule,
+    ProductsModule,
     // AuthModule,
-    // ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

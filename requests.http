@@ -14,7 +14,7 @@ content-type: application/json
 }
 
 ### Get a particular user
-GET http://localhost:3001/users/4
+GET http://localhost:3001/users/2
 
 
 ### DELETE a particular user!
