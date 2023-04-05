@@ -1,6 +1,7 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post } from '@nestjs/common';
 import { Products } from './products.model';
 import { ProductsService } from './products.service';
+import { CreateProductDto } from 'src/auth/dtos/create-product.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -18,6 +19,17 @@ export class ProductsController {
     if (!product) {
       throw new NotFoundException('Product Not Found!');
     }
+    
     return product;
+  }
+
+  @Post()
+  createUser(@Body() createProductDto: CreateProductDto): Promise<Products> {
+    return this.productsService.create(createProductDto);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: number): Promise<Products> {
+    return this.productsService.delete(id);
   }
 }

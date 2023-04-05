@@ -15,6 +15,9 @@ export class Products extends Model<Products> {
   @Column
   name: string;
 
+  @Column
+  picture: string
+
   @Column({
     allowNull: false,
     unique: true,
@@ -32,6 +35,6 @@ export class Products extends Model<Products> {
   })
   hazardous: boolean;
 
-  // @Column(DataType.STRING)
-  // description: string;
+  @Column
+  description: string
 }
