@@ -20,7 +20,6 @@ export class Products extends Model<Products> {
 
   @Column({
     allowNull: false,
-    unique: true,
   })
   unit: string;
 

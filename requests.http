@@ -7,10 +7,10 @@ POST http://localhost:3001/users/signup
 content-type: application/json
 
 {
-  "name": "TestForSignUp1",
-    "email": "testSignUp1@gmail.com",
-    "password": "singup123",
-    "right": "write"
+  "name": "TestForBody2",
+    "email": "testBodyNew@gmail.com",
+    "password": "body12341",
+    "right": "Write"
 }
 
 ### Get a particular user
@@ -18,38 +18,7 @@ GET http://localhost:3001/users/6
 
 
 ### DELETE a particular user!
-DELETE  http://localhost:3001/users/4
-
-
-//CLIENTS
-### List all clients
-GET http://localhost:3001/clients
-
-### Get a particular client
-GET http://localhost:3001/clients/2
-
-
-
-### Create a new client
-POST http://localhost:3001/clients
-content-type: application/json
-
-{
-  "client_name": "TestClient3",
-  "email": "goodTest@email.com",
-  "country": "Bulgaria",
-  "countryCode": "BG",
-  "address": "Test2",
-  "postal_code": 9000,
-  "number_of_orders": 3,
-  "phone_number": 0123413189,
-  "city": "Varna",
-}
-
-
-### DELETE a particular client
-DELETE  http://localhost:3001/clients/2
-
+DELETE  http://localhost:3001/users/2
 
 
 //PRODUCTS
@@ -62,15 +31,30 @@ POST http://localhost:3001/products
 content-type: application/json
 
 {
-  "name": "TestTest23123",
-    "email": "test2132@gmail.com",
-    "password": "weak123",
-    "right": "Write"
+    "name": "BuggUniqueMigration",
+    "unit": "tons",
+    "quantity": 2,
+
 }
 
 ### Get a particular user
-GET http://localhost:3001/products/4
+GET http://localhost:3001/products/7
 
 
 ### DELETE a particular product!
 DELETE  http://localhost:3001/products/4
+
+
+### WAREHOUSES
+GET http://localhost:3001/warehouses
+
+### Create a new Warehouse
+POST http://localhost:3001/warehouses
+content-type: application/json
+
+{
+    "name": "TestCreateWarehouse",
+    "location": "Germany",
+    "storage": 10000,
+    "hazardous": false
+}

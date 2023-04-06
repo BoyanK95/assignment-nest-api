@@ -22,13 +22,13 @@ export class WarehousesController {
 
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Warehouses> {
-    const product = await this.warehousesService.findOne(id);
+    const warehouse = await this.warehousesService.findOne(id);
 
-    if (!product) {
-      throw new NotFoundException('Product Not Found!');
+    if (!warehouse) {
+      throw new NotFoundException('Warehouse Not Found!');
     }
 
-    return product;
+    return warehouse;
   }
 
   @Post()
@@ -37,7 +37,12 @@ export class WarehousesController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number): Promise<Warehouses> {
+  async delete(@Param('id') id: number): Promise<Warehouses> {
+    const warehouse = await this.warehousesService.findOne(id);
+
+    if (!warehouse) {
+      throw new NotFoundException('Warehouse Not Found!');
+    }
     return this.warehousesService.delete(id);
   }
 }

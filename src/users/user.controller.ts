@@ -16,11 +16,13 @@ import { CreateUserDto } from 'src/auth/dtos/create-user.dto';
 export class UserController {
   constructor(private readonly usersService: UserService) {}
 
+  //Find all users/ route: http://localhost:3001/users
   @Get()
   findAll(): Promise<User[]> {
     return this.usersService.findAll();
   }
 
+  //Get one user
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<User> {
     const user = await this.usersService.findOne(id);
@@ -31,11 +33,28 @@ export class UserController {
     return user;
   }
 
-  @Post('/signup')
-  createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return this.usersService.create(createUserDto);
+  @Get('/auth/:email')
+  async findOneByEmail(@Param('email') email: string): Promise<User> {
+    const user = await this.usersService.findOneByEmail(email);
+
+    if (!user) {
+      throw new NotFoundException('User Not Found!');
+    }
+    return user;
   }
 
+  //Sign up / route: http://localhost:3001/users/signup
+  @Post('/signup')
+  createUser(@Body() body: CreateUserDto): Promise<User> {
+    return this.usersService.create(body);
+  }
+
+  // @Post('/signup')
+  // createUser(@Body() body: CreateUserDto): Promise<User> {
+  //   return this.usersService.create(body);
+  // }
+
+  //Delete user/ http://localhost:3001/users/:id
   @Delete(':id')
   delete(@Param('id') id: number): Promise<User> {
     return this.usersService.delete(id);
