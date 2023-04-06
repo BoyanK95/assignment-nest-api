@@ -32,8 +32,8 @@ import { WarehousesModule } from './warehouses/warehouses.module';
     WarehousesModule,
     // AuthModule,
   ],
-  controllers: [AppController, WarehousesController],
-  providers: [AppService, WarehousesService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

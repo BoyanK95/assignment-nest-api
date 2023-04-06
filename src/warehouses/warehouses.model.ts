@@ -1,9 +1,9 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table({
-  tableName: 'products',
+  tableName: 'warehouses',
 })
-export class Products extends Model<Products> {
+export class Warehouses extends Model<Warehouses> {
   @Column({
     primaryKey: true,
     autoIncrement: true,
@@ -20,14 +20,13 @@ export class Products extends Model<Products> {
 
   @Column({
     allowNull: false,
-    unique: true,
   })
-  unit: string;
+  location: string;
 
   @Column({
     allowNull: false,
   })
-  quantity: number;
+  storage: number;
 
   @Column({
     allowNull: false,
