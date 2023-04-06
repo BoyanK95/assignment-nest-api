@@ -26,10 +26,9 @@ export class User extends Model<User> {
   })
   password: string;
 
-  // @Column({
-  //   allowNull: false,
-  //   defaultValue: 'Read',
-  //   values: ['Admin', 'Read', 'Write'],
-  // })
-  // rights: string;
+  @Column({
+    defaultValue: 'Read',
+    values: ['Admin', 'Read', 'Write'],
+  })
+  rights: string;
 }

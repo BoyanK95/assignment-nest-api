@@ -7,10 +7,10 @@ POST http://localhost:3001/users
 content-type: application/json
 
 {
-  "name": "TestTest236543623",
-    "email": "test2132",
-    "password": "weak123",
-    "right": "Write"
+  "name": "LastForRightsTest236543623",
+    "email": "test2133432@gmail.com",
+    "password": "weak21123",
+    "right": "read"
 }
 
 ### Get a particular user

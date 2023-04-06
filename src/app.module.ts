@@ -10,6 +10,9 @@ import { Client } from './clients/clients.model';
 import { User } from './users/user.model';
 import { UserModule } from './users/user.module';
 import { ProductsModule } from './products/products.module';
+import { WarehousesController } from './warehouses/warehouses.controller';
+import { WarehousesService } from './warehouses/warehouses.service';
+import { WarehousesModule } from './warehouses/warehouses.module';
 
 @Module({
   imports: [
@@ -26,10 +29,11 @@ import { ProductsModule } from './products/products.module';
     ClientsModule,
     UserModule,
     ProductsModule,
+    WarehousesModule,
     // AuthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, WarehousesController],
+  providers: [AppService, WarehousesService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
