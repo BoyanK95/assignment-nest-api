@@ -13,6 +13,8 @@ import { ProductsModule } from './products/products.module';
 import { WarehousesController } from './warehouses/warehouses.controller';
 import { WarehousesService } from './warehouses/warehouses.service';
 import { WarehousesModule } from './warehouses/warehouses.module';
+import { Products } from './products/products.model';
+import { Warehouses } from './warehouses/warehouses.model';
 
 @Module({
   imports: [
@@ -24,7 +26,7 @@ import { WarehousesModule } from './warehouses/warehouses.module';
       password: credentials.password,
       autoLoadModels: true,
       synchronize: true,
-      models: [Client, User],
+      models: [User, Products, Warehouses],
     }),
     ClientsModule,
     UserModule,

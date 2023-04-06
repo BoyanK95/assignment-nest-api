@@ -3,14 +3,14 @@ GET http://localhost:3001/users
 
 
 ### Create a new user
-POST http://localhost:3001/users
+POST http://localhost:3001/users/signup
 content-type: application/json
 
 {
-  "name": "LastForRightsTest236543623",
-    "email": "test2133432@gmail.com",
-    "password": "weak21123",
-    "right": "read"
+  "name": "TestForSignUp1",
+    "email": "testSignUp1@gmail.com",
+    "password": "singup123",
+    "right": "write"
 }
 
 ### Get a particular user
