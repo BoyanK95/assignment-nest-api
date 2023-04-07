@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Warehouses } from './warehouses.model';
+import { CreateWarehouseDto } from 'src/auth/dtos/create-warehouse.dto';
 
 @Injectable()
 export class WarehousesService {
@@ -17,7 +18,7 @@ export class WarehousesService {
         return this.warehousesModel.findByPk(id);
       }
     
-      async create(warehouse: any): Promise<Warehouses> {
+      async create(warehouse: CreateWarehouseDto): Promise<Warehouses> {
         return this.warehousesModel.create(warehouse);
       }
     

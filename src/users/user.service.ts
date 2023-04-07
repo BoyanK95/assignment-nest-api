@@ -30,7 +30,7 @@ export class UserService {
     // return user;
   }
 
-  async create(user: any): Promise<User> {
+  async create(user: CreateUserDto): Promise<User> {
     return this.userModel.create(user);
   }
 

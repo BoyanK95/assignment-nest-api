@@ -7,9 +7,9 @@ POST http://localhost:3001/users/signup
 content-type: application/json
 
 {
-  "name": "TestForBody2",
-    "email": "testBodyNew@gmail.com",
-    "password": "body12341",
+  "name": "TestForUserDTO1",
+    "email": "testUserDTO@gmail.com",
+    "password": "DTP12345",
     "right": "Write"
 }
 
@@ -53,8 +53,8 @@ POST http://localhost:3001/warehouses
 content-type: application/json
 
 {
-    "name": "TestCreateWarehouse",
-    "location": "Germany",
-    "storage": 10000,
-    "hazardous": false
+    "name": "TestCreateWarehouseDTO",
+    "location": "Thailand",
+    "storage": 200000,
+    "hazardous": true
 }

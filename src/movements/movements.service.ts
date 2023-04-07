@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Movements } from './movements.model';
+import { CreateMovementDto } from 'src/auth/dtos/create-movement.dto';
 
 @Injectable()
 export class MovementsService {
@@ -17,7 +18,7 @@ export class MovementsService {
         return this.movementsModel.findByPk(id);
       }
     
-      async create(movement: any): Promise<Movements> {
+      async create(movement: CreateMovementDto): Promise<Movements> {
         return this.movementsModel.create(movement);
       }
     

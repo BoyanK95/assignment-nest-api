@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Products } from './products.model';
+import { CreateProductDto } from 'src/auth/dtos/create-product.dto';
 
 @Injectable()
 export class ProductsService {
@@ -17,7 +18,7 @@ export class ProductsService {
     return this.productsModel.findByPk(id);
   }
 
-  async create(product: any): Promise<Products> {
+  async create(product: CreateProductDto): Promise<Products> {
     return this.productsModel.create(product);
   }
 
