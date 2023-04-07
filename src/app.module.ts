@@ -15,6 +15,9 @@ import { WarehousesService } from './warehouses/warehouses.service';
 import { WarehousesModule } from './warehouses/warehouses.module';
 import { Products } from './products/products.model';
 import { Warehouses } from './warehouses/warehouses.model';
+import { MovementsController } from './movements/movements.controller';
+import { MovementsService } from './movements/movements.service';
+import { MovementsModule } from './movements/movements.module';
 
 @Module({
   imports: [
@@ -32,6 +35,7 @@ import { Warehouses } from './warehouses/warehouses.model';
     UserModule,
     ProductsModule,
     WarehousesModule,
+    MovementsModule,
     // AuthModule,
   ],
   controllers: [AppController],
