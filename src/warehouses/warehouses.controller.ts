@@ -32,7 +32,7 @@ export class WarehousesController {
   }
 
   @Post()
-  createUser(@Body() createWarehouseDto: CreateWarehouseDto): Promise<Warehouses> {
+  createWarehouse(@Body() createWarehouseDto: CreateWarehouseDto): Promise<Warehouses> {
     return this.warehousesService.create(createWarehouseDto);
   }
 

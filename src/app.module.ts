@@ -18,6 +18,7 @@ import { Warehouses } from './warehouses/warehouses.model';
 import { MovementsController } from './movements/movements.controller';
 import { MovementsService } from './movements/movements.service';
 import { MovementsModule } from './movements/movements.module';
+import { CorsMiddleware } from './middlewares/cors.middleware';
 
 @Module({
   imports: [
@@ -41,10 +42,8 @@ import { MovementsModule } from './movements/movements.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-  // configure(consumer: MiddlewareConsumer) {
-  //     consumer
-  //       .apply()
-  //       .forRoutes('users')
-  // }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+      consumer.apply(CorsMiddleware).forRoutes('*')
+  }
 }

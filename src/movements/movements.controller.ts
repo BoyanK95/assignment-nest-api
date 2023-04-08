@@ -32,7 +32,7 @@ export class MovementsController {
   }
 
   @Post()
-  createUser(
+  createMovement(
     @Body() createMovementDto: CreateMovementDto,
   ): Promise<Movements> {
     return this.movementsService.create(createMovementDto);

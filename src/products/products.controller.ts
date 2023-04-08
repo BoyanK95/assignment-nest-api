@@ -32,7 +32,7 @@ export class ProductsController {
   }
 
   @Post()
-  createUser(@Body() createProductDto: CreateProductDto): Promise<Products> {
+  createProduct(@Body() createProductDto: CreateProductDto): Promise<Products> {
     return this.productsService.create(createProductDto);
   }
 

@@ -53,8 +53,8 @@ POST http://localhost:3001/warehouses
 content-type: application/json
 
 {
-    "name": "TestCreateWarehouseDTO",
-    "location": "Thailand",
-    "storage": 200000,
-    "hazardous": true
+    "name": "TestCreateWarehouse2",
+    "location": "Belgum",
+    "storage": 100000,
+    "hazardous": false
 }
