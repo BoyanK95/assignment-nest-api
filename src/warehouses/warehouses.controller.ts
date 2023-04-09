@@ -6,6 +6,7 @@ import {
   NotFoundException,
   Param,
   Post,
+  Put,
 } from '@nestjs/common';
 import { WarehousesService } from './warehouses.service';
 import { Warehouses } from './warehouses.model';
@@ -32,8 +33,24 @@ export class WarehousesController {
   }
 
   @Post()
-  createWarehouse(@Body() createWarehouseDto: CreateWarehouseDto): Promise<Warehouses> {
+  createWarehouse(
+    @Body() createWarehouseDto: CreateWarehouseDto,
+  ): Promise<Warehouses> {
     return this.warehousesService.create(createWarehouseDto);
+  }
+
+  @Put(':id')
+  async update(
+    @Param('id') id: number,
+    @Body() body: any,
+  ): Promise<number> {
+    const warehouse = await this.warehousesService.findOne(id);
+
+    if (!warehouse) {
+      throw new NotFoundException('Warehouse Not Found!');
+    }
+
+    return this.warehousesService.update(id, body);
   }
 
   @Delete(':id')
