@@ -7,10 +7,10 @@ POST http://localhost:3001/users/signup
 content-type: application/json
 
 {
-  "name": "TestForUserDTO1",
-    "email": "testUserDTO@gmail.com",
-    "password": "DTP12345",
-    "right": "Write"
+  "name": "TestFrontEndUser",
+    "email": "TestFrontEndUser@gmail.com",
+    "password": "reactJS12345",
+    "right": "Read"
 }
 
 ### Get a particular user
@@ -31,8 +31,8 @@ POST http://localhost:3001/products
 content-type: application/json
 
 {
-    "name": "BuggUniqueMigration",
-    "unit": "tons",
+    "name": "NPK",
+    "unit": "t",
     "quantity": 2,
 
 }
@@ -53,8 +53,8 @@ POST http://localhost:3001/warehouses
 content-type: application/json
 
 {
-    "name": "TestCreateWarehouse2",
-    "location": "Belgum",
-    "storage": 100000,
+    "name": "US-Warehouse",
+    "location": "USA",
+    "storage": 10000000,
     "hazardous": false
 }
