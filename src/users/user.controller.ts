@@ -33,7 +33,7 @@ export class UserController {
     return user;
   }
 
-  @Get('/auth/:email')
+  @Get('/find/:email')
   async findOneByEmail(@Param('email') email: string): Promise<User> {
     const user = await this.usersService.findOneByEmail(email);
 
@@ -41,12 +41,6 @@ export class UserController {
       throw new NotFoundException('User Not Found!');
     }
     return user;
-  }
-
-  //Sign up / route: http://localhost:3001/users/signup
-  @Post('/signup')
-  createUser(@Body() body: CreateUserDto): Promise<User> {
-    return this.usersService.create(body);
   }
 
   // @Post('/signup')

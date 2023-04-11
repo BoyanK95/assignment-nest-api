@@ -35,7 +35,6 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
       models: [User, Products, Warehouses],
     }),
-    ClientsModule,
     UserModule,
     AuthModule,
     ProductsModule,

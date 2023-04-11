@@ -58,3 +58,6 @@ content-type: application/json
     "storage": 10000000,
     "hazardous": false
 }
+
+###
+GET http://localhost:3001/movements
