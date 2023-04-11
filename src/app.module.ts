@@ -20,6 +20,7 @@ import { MovementsService } from './movements/movements.service';
 import { MovementsModule } from './movements/movements.module';
 import { CorsMiddleware } from './middlewares/cors.middleware';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -36,10 +37,11 @@ import { ConfigModule } from '@nestjs/config';
     }),
     ClientsModule,
     UserModule,
+    AuthModule,
     ProductsModule,
     WarehousesModule,
     MovementsModule,
-    // AuthModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],
