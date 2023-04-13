@@ -59,5 +59,16 @@ content-type: application/json
     "hazardous": false
 }
 
+### Edit a new Warehouse
+PUT http://localhost:3001/warehouses/1
+content-type: application/json
+
+{
+    "name": "WarehouseBGTest1",
+    "location": "Bulgaria",
+    "storage": 333,
+    "hazardous": false
+}
+
 ###
 GET http://localhost:3001/movements
