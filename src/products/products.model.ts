@@ -35,4 +35,25 @@ export class Products extends Model<Products> {
 
   @Column
   description: string
+
+
+  /** This shoudl establish relations between tables, didn't try it out cause of absence of time and, because I donw want to bug SQL tables DB */
+  // @ForeignKey(() => User)
+  // @Column({
+  //   type: DataType.NUMBER,
+  //   references: {
+  //     model: User,
+  //     key: 'id',
+  //   },
+  // })
+  // user_id: number;
+
+  // @BelongsTo(() => User)
+  // user: User;
+
+  // @HasMany(() => Movements, 'exportedWarehouseId')
+  // exportedMovements: Movements;
+
+  // @HasMany(() => Movements, 'importedWarehouseId')
+  // importedMovements: Movements;
 }
