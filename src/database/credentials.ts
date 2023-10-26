@@ -1,7 +1,9 @@
+import { newCredentials } from "newCredentials";
+
 export const credentials = {
-  user: 'postgres',
-  host: 'localhost',
-  database: 'inventorySaaS',
-  password: 'Xxxpoint9569',
-  port: 5432,
+  user: newCredentials.user,
+  host: newCredentials.host,
+  database: newCredentials.database,
+  password: newCredentials.password,
+  port: newCredentials.port,
 };

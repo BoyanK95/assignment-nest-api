@@ -7,8 +7,13 @@ import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
 import { CreateUserDto } from 'src/auth/dtos/create-user.dto';
 
+type singInToken = {
+  token: string
+}
 @Injectable()
 export class UserService {
+  config: any;
+  jwt: any;
   constructor(
     @InjectModel(User)
     private readonly userModel: typeof User,
@@ -23,11 +28,11 @@ export class UserService {
   }
 
   async findOneByEmail(email: string): Promise<User> {
-    return this.userModel.findOne({ where: { email: email } });
-    // if (!user) {
-    //   throw new NotFoundException('There is no user with this email');
-    // }
-    // return user;
+    const user = this.userModel.findOne({ where: { email: email } });
+    if (!user) {
+      throw new NotFoundException('There is no user with this email');
+    }
+    return user;
   }
 
   async create(user: CreateUserDto): Promise<User> {
@@ -47,31 +52,31 @@ export class UserService {
     return user;
   }
 
-  // loginAsync = async (dto: CreateUserDto): Promise<User> => {
-  //   const user = await this.userModel.findOne({
-  //     where: { email: dto.email },
-  //   });
-  //   if (!user) throw new ForbiddenException('Email incorrect');
+  loginAsync = async (dto: CreateUserDto): Promise<singInToken> => {
+    const user = await this.userModel.findOne({
+      where: { email: dto.email },
+    });
+    if (!user) throw new ForbiddenException('Email incorrect');
 
-  //   const correctPassword = await verifyPasswordAsync(
-  //     dto.password,
-  //     user.password,
-  //   );
-  //   if (!correctPassword) throw new ForbiddenException('Password incorrect');
-  //   return this.signTokenAsync(user.id);
-  // };
+    // const correctPassword = await verifyPasswordAsync(
+    //   dto.password,
+    //   user.password,
+    // );
+    // if (!correctPassword) throw new ForbiddenException('Password incorrect');
+    return this.signTokenAsync(user.id);
+  };
 
-  // private signTokenAsync = async (id: string): Promise<User> => {
-  //   const payload = {
-  //     id: id,
-  //   };
-  //   const secret = this.config.get('JWT_SECRET');
+  private signTokenAsync = async (id: string): Promise<singInToken> => {
+    const payload = {
+      id: id,
+    };
+    const secret = this.config.get('JWT_SECRET');
 
-  //   const token = await this.jwt.signAsync(payload, {
-  //     expiresIn: '120m',
-  //     secret: secret,
-  //   });
+    const token = await this.jwt.signAsync(payload, {
+      expiresIn: '120m',
+      secret: secret,
+    });
 
-  //   return { token: token };
-  // };
+    return { token: token as string };
+  };
 }

@@ -32,12 +32,13 @@ export class User extends Model<User> {
     defaultValue: 'Read',
     values: ['Admin', 'Read', 'Write'],
   })
+  token: string;
   rights: string;
 
-/** This shoudl establish relations between tables, didn't try it out cause of absence of time and, because I donw want to bug SQL tables DB */
-  // @HasMany(() => Products, 'user_id')
-  // products: Products[];
+  /** This shoudl establish relations between tables, didn't try it out cause of absence of time and, because I donw want to bug SQL tables DB */
+  @HasMany(() => Products, 'user_id')
+  products: Products[];
 
-  // @HasMany(() => Warehouses, 'user_id')
-  // warehouses: Warehouses[];
+  @HasMany(() => Warehouses, 'user_id')
+  warehouses: Warehouses[];
 }
